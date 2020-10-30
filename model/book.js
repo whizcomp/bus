@@ -24,6 +24,10 @@ const bookSchema = new mongoose.Schema({
         fare: {
             type: Number,
         },
+        paid: {
+            type: Boolean,
+            default: false
+        },
         time: {
             type: Date,
         },

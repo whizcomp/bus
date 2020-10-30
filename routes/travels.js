@@ -53,13 +53,13 @@ router.get("/myTravels", auth, async (req, res) => {
 });
 router.get("/info/:id", auth, async (req, res) => {
     const travel = await Travel.findById(req.params.id);
-    if (!travel) res.status(404).send('travel already deleted');
+    if (!travel) return res.status(404).send('travel already deleted');
     res.send(travel);
 })
 router.delete("/:id", auth, async (req, res) => {
 
     const travel = await Travel.findByIdAndDelete(req.params.id)
-    if (!travel) res.status(404).send('travel already deleted');
+    if (!travel)return  res.status(404).send('travel already deleted');
     res.send(travel)
 })
 
